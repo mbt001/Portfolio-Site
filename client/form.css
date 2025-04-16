@@ -1,0 +1,194 @@
+:root {
+    --bg: #0f0f1e;
+    --text: #ffffff;
+    --text-muted: #999;
+    --accent: #b084f9;
+    --border: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --particles-color: #b084f9;
+  }
+  
+  .light-theme {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --accent: #7e3af2;
+    --border: rgba(0, 0, 0, 0.05);
+    --card-bg: #ffffff;
+    --particles-color: #c8b7f8;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 999;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--accent);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .contact-container {
+    background-color: var(--bg); /* or #1a1a1a if you want a hardcoded color */
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 100px auto 80px;
+    padding: 40px;
+  }
+  
+  
+  .contact-container h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    resize: none;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: gold;
+    color: black;
+  }
+  
+  
+  .footer {
+    background-color: #0f0f1e;
+    color: #ccc;
+    font-size: 13px;
+    padding: 12px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .footer-slim {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    text-align: center;
+  }
+  .footer-left, .footer-center, .footer-right {
+    flex: 1 1 30%;
+  }
+  .footer a {
+    margin-left: 15px;
+    color: #b084f9;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  body.light-theme .footer {
+    background-color: #e5e5ea;
+    color: #1d1d1f;
+  }
+  body.light-theme .footer a {
+    color: #0071e3;
+  }
+  
+  .back-link {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  
