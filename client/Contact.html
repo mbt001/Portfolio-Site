@@ -56,14 +56,16 @@
 
   <!-- JS -->
   <script>
+    // 🌗 Load saved theme (light/dark)
     const toggle = document.getElementById("themeSwitcher");
     const savedTheme = localStorage.getItem("theme") || "dark";
-
+  
     if (savedTheme === "light") {
       document.body.classList.add("light-theme");
       if (toggle) toggle.checked = true;
     }
-
+  
+    // 🌌 Load Particles Background
     function loadParticles() {
       const color = getComputedStyle(document.body).getPropertyValue('--particles-color').trim();
       if (window.pJSDom && window.pJSDom.length) {
@@ -105,50 +107,74 @@
         retina_detect: true
       });
     }
-
+  
     loadParticles();
-
+  
+    // 🌗 Theme switch handler
     if (toggle) {
       toggle.addEventListener("change", () => {
         const theme = toggle.checked ? "light" : "dark";
         document.body.classList.toggle("light-theme", theme === "light");
         localStorage.setItem("theme", theme);
-        loadParticles();
+        loadParticles(); // reload particles color
       });
     }
-
-    // Form Validation
+  
+    // 📬 Contact Form Logic
     const contactForm = document.getElementById("contact-form");
+  
     if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
+      contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault(); // prevent default page reload
+  
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
+        const subject = document.getElementById("subject").value.trim(); // optional
         const message = document.getElementById("message").value.trim();
-
-        const strictEmailRegex = /^[a-zA-Z0-9._%+-]{2,}@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}$/;
-
+  
+        const strictEmailRegex = /^[a-zA-Z0-9._%+-]{2,}@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+  
         if (name.length < 2) {
           alert("Name must be at least 2 characters.");
           return;
         }
-
+  
         if (!strictEmailRegex.test(email)) {
           alert("❌ Invalid email. Use something like you@example.com.");
           return;
         }
-
+  
         if (message.length < 20) {
           alert("Message must be at least 20 characters.");
           return;
         }
-
-        alert("✅ Message sent successfully!");
-        window.location.href = "index.html";
+  
+        const payload = { name, email, message, subject };
+  
+        try {
+          const res = await fetch("http://localhost:5234/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+  
+          const data = await res.json();
+  
+          if (res.ok) {
+            alert("✅ " + data.message);
+            window.location.href = "index.html";
+          } else {
+            alert("❌ Error: " + data.message);
+          }
+        } catch (err) {
+          console.error(err);
+          alert("⚠️ Network error. Please try again.");
+        }
       });
     }
   </script>
+  
 </body>
 </html>
