@@ -197,8 +197,8 @@ if (contactForm) {
     }
 
     // === MESSAGE CHECK ===
-    if (message.length < 20) {
-      alert("❌ Message must be at least 20 characters.");
+    if (message.length < 10) {
+      alert("❌ Message must be at least 10 characters.");
       return;
     }
 
