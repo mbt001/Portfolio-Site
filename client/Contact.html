@@ -40,9 +40,6 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-slim">
-      <div class="footer-left">
-        <p>Design Credits · <em>Mohit Bhat</em></p>
-      </div>
       <div class="footer-center">
         <p>Built by <em>Mohit</em> 🚀 · 2025</p>
       </div>
@@ -152,7 +149,7 @@
         const payload = { name, email, message, subject };
   
         try {
-          const res = await fetch("http://localhost:5234/api/contact", {
+          const res = await fetch("https://api.mohitbhat.me/api/contact", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
