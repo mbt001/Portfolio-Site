@@ -204,7 +204,69 @@
 
 
   <!-- Experience Section -->
-
+  <div class="scroll-section" id="experience">
+  <section class="experience" id="experience">
+   
+    <h2 class="section-heading">Where I’ve Worked</h2>
+    <div class="experience-container">
+      <ul class="company-list">
+        <li data-target="fsu">F.S.U</li>
+        <li class="active" data-target="ltimindtree">LTIMindtree</li>
+        <li data-target="rait">R.A.I.T</li>
+        <li data-target="forbesautomation">ForbesAutomation Pvt. Ltd</li>
+      </ul>
+  
+      <div class="job-details">
+        <div class="job-entry active" id="ltimindtree">
+          <h3>Software Engineer <span>@ LTIMindtree</span></h3>
+          <p class="date">May 2021 – July 2023</p>
+          <ul>
+            <li>Re-engineered and migrated legacy VB.NET logistics architecture to C# and ASP.NET Core, improving performance by 78%.</li>
+            <li>Planned and decomposed refactoring roadmap into clear, manageable tasks.</li>
+            <li>Maintained technical documentation including user guides and API specs for global users.</li>
+            <li>Implemented UI components improving application usability across international markets.</li>
+            <li>Aligned reengineering efforts with stakeholder needs and performed extensive QA testing.</li>
+          </ul>
+        </div>
+  
+        <div class="job-entry" id="fsu">
+          <h3>Machine Learning Research Assistant<span>@ Florida State University</span></h3>
+          <p class="date">Sep 2024 – Present</p>
+          <ul>
+            <li>Led the reproduction and implementation of advanced algorithms from ”Securing Graph Neural Networks in
+              MLaaS”, using PyTorch and Torch-Geometric to replicate and validate model extraction attacks and defenses in
+              graph learning.</li>
+            <li>Preprocessed and validated datasets like Cora and Citeseer to ensure accurate, high-quality inputs for experiments,
+              collaborating with cross-functional teams to verify results and maintain consistency with original findings.</li>
+            <li>Collaborated with cross-functional teams to validate and document findings.</li>
+          </ul>
+        </div>
+  
+        <div class="job-entry" id="rait">
+          <h3>Research Assistant <span>@ Ramrao Adik Institute of Technology</span></h3>
+          <p class="date">Dec 2019 – Oct 2020</p>
+          <ul>
+            <li>Led development of sketch-based image retrieval system using GANs to enhance sketch input processing.</li>
+            <li>Collaborated under a postdoctoral researcher on image retrieval techniques and architecture.</li>
+            <li>Promoted to lead in June 2020, expanding system capabilities and improving GAN training quality.</li>
+          </ul>
+        </div>
+        <div class="job-entry" id="forbesautomation">
+          <h3>Web Developer Intern <span>@ ForbesAutomation Pvt. Ltd</span></h3>
+          <p class="date">Dec 2019 – Feb 2020</p>
+          <ul>
+            <li>Developed, enhanced and maintained websites utilizing ASP.NET MVC, C, Javascript / Jquery, HTML, CSS and
+              Microsoft Azure</li>
+            <li>Implemented UI components improving application usability across international markets.</li>
+            <li>Designed an automated FTL data pipeline using SQL, improving preprocessing efficiency by 10%.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+</div>
+  
   
 
 
@@ -213,46 +275,67 @@
   
   <!-- Projects Section -->
   <div class="scroll-section" id="projects">
-
-  <section class="projects" id="projects">
-    
-    <h2 class="section-heading"> My Projects</h2>
-    <div class="project-grid">
-      <div class="project-card" data-aos="fade-up">
-        <i class="fas fa-chart-line fa-2x" style="color:#00ffff;"></i>
-        <h3>Expense Pulse</h3>
-        <p>Blazor + .NET 8 app to track personal finances. Deployed on Azure.</p>
+    <section class="projects">
+      <h2 class="section-heading">My Projects</h2>
+  
+      <div class="project-grid">
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-icon"><i class="fas fa-chart-line fa-2x"></i></div>
+          <h3>Expense Pulse</h3>
+          <p>Blazor + .NET 8 app to track personal finances. Deployed on Azure.</p>
+          <div class="project-tech">Blazor · .NET 8 · Azure</div>
+        </div>
+  
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-icon"><i class="fas fa-brain fa-2x"></i></div>
+          <h3>AREA Assistant</h3>
+          <p>AI-powered reverse engineering assistant using Python & Ghidra. Uses heuristics and AI to analyze binary structures.</p>
+          <div class="project-tech">Python · Ghidra · ML</div>
+        </div>
+  
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-icon"><i class="fas fa-shield-alt fa-2x"></i></div>
+          <h3>Secure GNN Verifier</h3>
+          <p>Defends GNNs from model extraction attacks using PyTorch. Implements adversarial verification and detection.</p>
+          <div class="project-tech">PyTorch · GNN · Security</div>
+        </div>
       </div>
-      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-brain fa-2x" style="color:#00ffff;"></i>
-        <h3>AREA Assistant</h3>
-        <p>AI-powered reverse engineering assistant using Python & Ghidra.</p>
+  
+      <div class="archive-btn-container">
+        <button class="archive-btn" onclick="openArchive()">View Project Archive</button>
       </div>
-      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-shield-alt fa-2x" style="color:#00ffff;"></i>
-        <h3>Secure GNN Verifier</h3>
-        <p>Defends GNNs from model extraction attacks using PyTorch.</p>
+    </section>
+  
+    <!-- Archive Section -->
+    <section class="archive-section hidden" id="project-archive">
+      <h2 class="section-heading">Archive</h2>
+      <p class="archive-subheading">A list of things I’ve worked on</p>
+  
+      <div class="archive-grid">
+        <div class="archive-card">
+          <div class="archive-icon"><i class="fas fa-folder-open"></i></div>
+          <h3>COAPS Legacy Website</h3>
+          <p>Deployed and maintained a refreshed website for the Center for Ocean-Atmospheric Prediction Studies. Core objective: providing high-quality <span class="highlight">data products and services</span>.</p>
+          <div class="tags">PHP · JavaScript · Joomla 3–5</div>
+        </div>
+  
+        <div class="archive-card">
+          <div class="archive-icon"><i class="fas fa-folder-open"></i></div>
+          <h3>COAPS Simplified Daily Swath Files</h3>
+          <p>This functionality allows Marine Scientists to download satellite swath products. Only simplified files are initially available.</p>
+          <div class="tags">PostgreSQL · Python · JavaScript · Airflow</div>
+        </div>
+  
+        <div class="archive-card">
+          <div class="archive-icon"><i class="fas fa-folder-open"></i></div>
+          <h3>Web Scraping with LangChain</h3>
+          <p>Scrape sites and extract structured data using <span class="highlight">LangChain</span> and <span class="highlight">OpenAI Functions</span>.</p>
+          <div class="tags">Python · LangChain · OpenAI API · SQLAlchemy</div>
+        </div>
       </div>
-      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-shield-alt fa-2x" style="color:#00ffff;"></i>
-        <h3>Secure GNN Verifier</h3>
-        <p>Defends GNNs from model extraction attacks using PyTorch.</p>
-      </div>
-      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-shield-alt fa-2x" style="color:#00ffff;"></i>
-        <h3>Secure GNN Verifier</h3>
-        <p>Defends GNNs from model extraction attacks using PyTorch.</p>
-      </div>
-      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-shield-alt fa-2x" style="color:#00ffff;"></i>
-        <h3>Secure GNN Verifier</h3>
-        <p>Defends GNNs from model extraction attacks using PyTorch.</p>
-      </div>
-    </div>
-    
-  </section>
-</div>
-
+    </section>
+  </div>
+  
 
 <!--Skills-->
 <!-- ▬▬▬▬▬▬▬▬▬  SKILLS  ▬▬▬▬▬▬▬▬▬ -->
@@ -534,6 +617,25 @@ window.addEventListener('load', () => {
   <script>
     AOS.init();
   </script>
+<script>
+  function openArchive() {
+    const projects = document.querySelector('.projects');
+    const archive = document.getElementById('project-archive');
+
+    // Hide "My Projects"
+    projects.style.display = 'none';
+
+    // Show archive section with animation
+    archive.classList.remove('hidden');
+    setTimeout(() => {
+      archive.classList.add('visible');
+    }, 50);
+
+    archive.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+
 
 </body>
 </html>
