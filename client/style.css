@@ -149,20 +149,27 @@ html, body {
   
   /* ===== Experience Timeline ===== */
 /* Timeline Section */
-
+/* ===== Section Heading ===== */
 .section-heading {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 40px;
+  text-align: center;
+  color: var(--text);
 }
 
 .section-heading span {
-  color:  #33f1ff;
+  color: #33f1ff;
   font-family: monospace;
   font-size: 20px;
   margin-right: 10px;
 }
 
+body.light-theme .section-heading span {
+  color: #0073f0;
+}
+
+/* ===== Experience Layout ===== */
 .experience-container {
   display: flex;
   flex-direction: row;
@@ -171,6 +178,7 @@ html, body {
   margin: 0 auto;
 }
 
+/* ===== Company List ===== */
 .company-list {
   list-style: none;
   padding: 0;
@@ -187,13 +195,37 @@ html, body {
   transition: 0.3s;
 }
 
+.company-list li:hover {
+  background-color: rgba(51, 241, 255, 0.05);
+  color: #33f1ff;
+}
+
 .company-list li.active {
   color: #33f1ff;
   border-left: 2px solid #33f1ff;
   background-color: rgba(51, 241, 255, 0.1);
-  
 }
 
+body.light-theme .company-list {
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .company-list li {
+  color: #555;
+}
+
+body.light-theme .company-list li:hover {
+  background-color: rgba(0, 115, 240, 0.05);
+  color: #0073f0;
+}
+
+body.light-theme .company-list li.active {
+  color: #0073f0;
+  border-left: 2px solid #0073f0;
+  background-color: rgba(0, 115, 240, 0.08);
+}
+
+/* ===== Job Details ===== */
 .job-details {
   flex: 1;
 }
@@ -209,10 +241,11 @@ html, body {
 .job-entry h3 {
   font-size: 20px;
   margin-bottom: 5px;
+  color: var(--text);
 }
 
 .job-entry h3 span {
-  color:  #33f1ff;
+  color: #33f1ff;
 }
 
 .job-entry .date {
@@ -231,31 +264,38 @@ html, body {
   position: relative;
   margin-bottom: 12px;
   line-height: 1.6;
+  color: var(--text);
 }
 
 .job-entry ul li::before {
   content: "▹";
   position: absolute;
   left: 0;
-  color:  #33f1ff;
+  color: #33f1ff;
   font-size: 16px;
 }
 
-
-body.light-theme .timeline {
-  border-left: 3px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .timeline-dot {
-  background-color: #0071e3;
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
-}
-
-body.light-theme .timeline-content h3,
-body.light-theme .timeline-content p {
+body.light-theme .job-entry h3 {
   color: #1d1d1f;
 }
-  
+
+body.light-theme .job-entry .date {
+  color: #666;
+}
+
+body.light-theme .job-entry ul li {
+  color: #333;
+}
+
+body.light-theme .job-entry ul li::before {
+  color: #0073f0;
+}
+
+body.light-theme .job-entry h3 span {
+  color: #0073f0;
+}
+
+
   
   /* ===== Projects ===== */
 /* ===== Projects Section Container ===== */
@@ -1042,13 +1082,18 @@ body.light-theme .about-text p {
 /* ───────────── Education Timeline (drop‑in) ───────────── */
 
 /* ---------- Section heading ---------- */
+/* ===== Education Section ===== */
 .education-section {
   padding: 6rem 2rem;
-  color: #e2e6f3;              /* light text */
+  color: #e2e6f3;
   font-family: 'Poppins', sans-serif;
 }
 
-.education-header   { text-align: center; margin-bottom: 3rem; }
+.education-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 .education-subtitle {
   color: #abb4d2;
   font-size: 0.85rem;
@@ -1056,33 +1101,70 @@ body.light-theme .about-text p {
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
-.education-title    { color: #ffffff; font-size: 2.5rem; font-weight: 700; }
 
-/* ---------- Timeline spine + grid ---------- */
-.edu-timeline            { position: relative; max-width: 1000px; margin: auto; }
-.edu-timeline::before    { content: ''; position: absolute; top: 0; bottom: 0; left: 50%;
-                           width: 2px; background: #2c2f45; transform: translateX(-50%); }
+.education-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
 
-.edu-timeline-row        { display: grid; grid-template-columns: 1fr auto 1fr;
-                           align-items: center; margin: 3rem 0; }
+/* ===== Timeline Spine and Grid ===== */
+.edu-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
 
-/* Give cards breathing room so they don’t touch the spine */
-.edu-timeline-content.left  .edu-card { margin-right: 3rem; }
-.edu-timeline-content.right .edu-card { margin-left:  3rem; }
+.edu-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #2c2f45;
+  transform: translateX(-50%);
+}
 
-/* ---------- Dots on the line ---------- */
+.edu-timeline-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.edu-timeline-content.left .edu-card {
+  margin-right: 3rem;
+}
+
+.edu-timeline-content.right .edu-card {
+  margin-left: 3rem;
+}
+
+/* ===== Timeline Dots ===== */
 .edu-timeline-dot {
-  width: 60px; height: 60px; border-radius: 50%; background: #ffffff;
-  display: flex; justify-content: center; align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid #33f1ff;
   box-shadow: 0 0 0 4px rgba(51, 241, 255, 0.2);
   z-index: 1;
 }
-.edu-timeline-dot img { max-width: 36px; height: auto; }
 
-.edu-timeline-spacer { height: 100%; }  /* empty column opposite a card */
+.edu-timeline-dot img {
+  max-width: 36px;
+  height: auto;
+}
 
-/* ---------- Cards ---------- */
+.edu-timeline-spacer {
+  height: 100%;
+}
+
+/* ===== Cards ===== */
 .edu-card {
   background: #034b65;
   border-radius: 12px;
@@ -1092,15 +1174,40 @@ body.light-theme .about-text p {
   max-width: 420px;
   transition: background 0.25s ease;
 }
-.edu-card:hover          { background: #045777; }
+
+.edu-card:hover {
+  background: #045777;
+}
 
 .edu-card h3,
-.edu-card h4             { font-size: 1.2rem; font-weight: 600; margin: 0 0 0.5rem; }
-.edu-card .institution   { font-size: 0.95rem; color: #abb4d2; margin: 0 0 0.25rem; }
-.edu-card .edu-date      { font-size: 0.85rem; color: #8892b0; font-style: italic; margin: 0 0 0.75rem; }
-.edu-card ul             { list-style: disc; padding-left: 1.2rem; margin: 0; font-size: 0.9rem; color: #cbd1e7; }
+.edu-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
 
-/* ---------- Coursework slide‑down ---------- */
+.edu-card .institution {
+  font-size: 0.95rem;
+  color: #abb4d2;
+  margin: 0 0 0.25rem;
+}
+
+.edu-card .edu-date {
+  font-size: 0.85rem;
+  color: #8892b0;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+
+.edu-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cbd1e7;
+}
+
+/* ===== Coursework Slide Down ===== */
 .coursework {
   max-height: 0;
   opacity: 0;
@@ -1112,32 +1219,98 @@ body.light-theme .about-text p {
 }
 
 .edu-card:hover .coursework {
-  max-height: 600px;     /* large enough for any list length */
+  max-height: 600px;
   opacity: 1;
   padding-top: 1rem;
   margin-top: 1rem;
 }
 
-.coursework h4          { color: #33f1ff; margin: 0 0 0.5rem; font-size: 1.1rem; }
-
-/* ---------- Helpers for alignment ---------- */
-.left  { justify-self: end;   }
-.right { justify-self: start; }
-
-/* ---------- Mobile ---------- */
-@media (max-width: 768px) {
-  .edu-timeline-row            { grid-template-columns: auto; }
-  .edu-card                    { max-width: none; margin: 0 !important; }  /* remove the 3rem gaps on small screens */
-  .education-title             { font-size: 2rem; }
+.coursework h4 {
+  color: #33f1ff;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
 }
-/* ─────────────────────────────────────────────────────── */
 
+/* ===== Alignment Helpers ===== */
+.left {
+  justify-self: end;
+}
+
+.right {
+  justify-self: start;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .edu-timeline-row {
+    grid-template-columns: auto;
+  }
+
+  .edu-card {
+    max-width: none;
+    margin: 0 !important;
+  }
+
+  .education-title {
+    font-size: 2rem;
+  }
+}
+
+/* ===== Light Theme Fixes ===== */
+body.light-theme .education-section {
+  color: #0071e3;
+}
+
+body.light-theme .education-title {
+  color: #0071e3;
+}
+
+body.light-theme .education-subtitle {
+  color: #666;
+}
+
+body.light-theme .edu-timeline::before {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .edu-timeline-dot {
+  background: #ffffff;
+  border: 2px solid #8bb8ff;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+body.light-theme .edu-card {
+  background: #ffffff;
+  color: #1d1d1f;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .edu-card:hover {
+  background: #f0f2f5;
+}
+
+body.light-theme .edu-card .institution {
+  color: #444;
+}
+
+body.light-theme .edu-card .edu-date {
+  color: #777;
+}
+
+body.light-theme .edu-card ul {
+  color: #333;
+}
+
+body.light-theme .coursework h4 {
+  color: #0071e3;
+}
 
 
 
 
 
 /* FINAL NAVBAR FIX */
+/* ===== Navigation Bar ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -1153,8 +1326,7 @@ body.light-theme .about-text p {
   justify-content: space-between;
 }
 
-/* Flush-left logo */
-/* Flush-left SVG logo */
+/* Logo Area */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -1172,15 +1344,13 @@ body.light-theme .about-text p {
   transform: scale(1.1);
 }
 
-/* Nav links aligned right */
-/* Fix for nav-links + spacing before theme toggle */
+/* Navigation Links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px; /* Spacing between nav items */
-  margin-right: 160px; /* Push nav links away from theme toggle */
+  gap: 28px;
+  margin-right: 160px;
 }
-
 
 .nav-links li a {
   font-family: 'Fira Code', monospace;
@@ -1200,17 +1370,32 @@ body.light-theme .about-text p {
   font-weight: 500;
 }
 
+/* ===== Light Theme Adjustments ===== */
+body.light-theme .nav-links li a {
+  color: #1d1d1f;
+}
+
+body.light-theme .nav-links li a:hover {
+  color: #0073f0;
+}
+
+body.light-theme .nav-index {
+  color: #0073f0;
+}
+
+
 
 
 
 
 
 /* ───── Skills Triple‑Marquee with Headings ─────────── */
+/* ===== Technologies Section ===== */
 .tech-section {
   padding: 60px 100px;
   text-align: center;
   position: relative;
-  background: transparent; /* Make sure no background gradient is added */
+  background: transparent;
 }
 
 .section-heading {
@@ -1220,15 +1405,16 @@ body.light-theme .about-text p {
   color: var(--text-color);
 }
 
-/* Remove any pseudo-element that might create a fog line */
+/* Remove fog line or background fog effect */
 .tech-section::before {
   content: none;
 }
 
-/* row wrapper */
+/* Row wrapper block */
 .row-block {
   margin-bottom: 50px;
 }
+
 .row-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -1237,11 +1423,16 @@ body.light-theme .about-text p {
   color: #33f1ff;
 }
 
-/* marquee rows */
+body.light-theme .row-title {
+  color: #0073f0;
+}
+
+/* Marquee wrapper */
 .tech-marquee {
   overflow: hidden;
   width: 100%;
 }
+
 .tech-row {
   display: flex;
   gap: 40px;
@@ -1249,27 +1440,30 @@ body.light-theme .about-text p {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+
 .row-1 {
-  animation: scroll-l 25s infinite;
+  animation: scroll-l 25s linear infinite;
 }
+
 .row-2 {
-  animation: scroll-r 32s infinite;
+  animation: scroll-r 32s linear infinite;
 }
+
 .row-3 {
-  animation: scroll-l 28s infinite;
+  animation: scroll-l 28s linear infinite;
 }
 
 @keyframes scroll-l {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); }
 }
 
 @keyframes scroll-r {
   from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  to   { transform: translateX(0); }
 }
 
-/* skill tiles */
+/* Skill Tiles */
 .tech-tile {
   width: 80px;
   height: 80px;
@@ -1279,44 +1473,61 @@ body.light-theme .about-text p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .tech-tile img {
   width: 42px;
   height: 42px;
   margin-bottom: 6px;
 }
+
 .tech-tile span {
   font-size: 0.9rem;
   color: var(--text-color);
+  text-align: center;
 }
+
 .tech-tile:hover {
   transform: translateY(-6px) scale(1.05);
   box-shadow: 0 0 0 3px gold, 0 0 18px gold;
 }
 
-/* light theme override */
-body.light-theme .tech-tile span {
-  color: #0071e3;
+/* ===== Light Theme Adjustments ===== */
+body.light-theme .tech-section {
+  background: transparent;
 }
 
+body.light-theme .section-heading {
+  color: #0073f0;
+}
+
+body.light-theme .tech-tile span {
+  color: #0073f0;
+}
+
+/* ===== Responsive Styling ===== */
 @media (max-width: 768px) {
   .tech-section {
     padding: 40px 20px;
   }
+
   .row-title {
     font-size: 0.95rem;
     margin-bottom: 12px;
   }
+
   .tech-tile {
     width: 64px;
     height: 64px;
     padding: 12px 6px;
   }
+
   .tech-tile img {
     width: 32px;
     height: 32px;
   }
+
   .tech-tile span {
     font-size: 0.8rem;
   }
@@ -1325,7 +1536,8 @@ body.light-theme .tech-tile span {
 
 
 
-.connect .archive-btn {
 
+.connect .archive-btn {
+  /* ... your existing styles ... */
   text-decoration: none;
 }
