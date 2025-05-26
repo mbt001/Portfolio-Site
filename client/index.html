@@ -279,62 +279,103 @@
       <h2 class="section-heading">My Projects</h2>
   
       <div class="project-grid">
+        <!-- Project 1 -->
         <div class="project-card" data-aos="fade-up">
-          <div class="project-icon"><i class="fas fa-chart-line fa-2x"></i></div>
-          <h3>Expense Pulse</h3>
-          <p>Blazor + .NET 8 app to track personal finances. Deployed on Azure.</p>
-          <div class="project-tech">Blazor · .NET 8 · Azure</div>
+          <div class="card-icons">
+            <i class="fas fa-folder"></i>
+            <a href="https://github.com/your-username/coaps-legacy-website" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="project-title">COAPS Legacy Website</h3>
+          <p class="project-desc">
+            Deployed and maintained a refreshed website for the Center for Ocean-Atmospheric Prediction Studies. Core Objective: providing high-quality data products and services to the public, private, and research communities.
+          </p>
+          <div class="tech-stack">PHP &nbsp;&nbsp; Javascript &nbsp;&nbsp; Joomla 3–5</div>
         </div>
   
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-icon"><i class="fas fa-brain fa-2x"></i></div>
-          <h3>AREA Assistant</h3>
-          <p>AI-powered reverse engineering assistant using Python & Ghidra. Uses heuristics and AI to analyze binary structures.</p>
-          <div class="project-tech">Python · Ghidra · ML</div>
+        <!-- Project 2 -->
+        <div class="project-card" data-aos="fade-up">
+          <div class="card-icons">
+            <i class="fas fa-folder"></i>
+            <a href="https://github.com/your-username/coaps-swath-files" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="project-title">COAPS Simplified Daily Swath Files</h3>
+          <p class="project-desc">
+            This functionality provides Marine Scientists the ability to download one or more data files from the satellite products hosted at COAPS.
+          </p>
+          <div class="tech-stack">PostgreSQL &nbsp;&nbsp; Python &nbsp;&nbsp; Javascript &nbsp;&nbsp; Airflow</div>
         </div>
   
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="project-icon"><i class="fas fa-shield-alt fa-2x"></i></div>
-          <h3>Secure GNN Verifier</h3>
-          <p>Defends GNNs from model extraction attacks using PyTorch. Implements adversarial verification and detection.</p>
-          <div class="project-tech">PyTorch · GNN · Security</div>
+        <!-- Project 3 -->
+        <div class="project-card" data-aos="fade-up">
+          <div class="card-icons">
+            <i class="fas fa-folder"></i>
+            <a href="https://github.com/your-username/langchain-scraper" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="project-title">Web Scraping with LangChain</h3>
+          <p class="project-desc">
+            This codebase allows you to scrape any website and extract relevant data points easily using OpenAI Functions and LangChain.
+          </p>
+          <div class="tech-stack">Python &nbsp;&nbsp; LangChain &nbsp;&nbsp; OpenAI API &nbsp;&nbsp; SQLAlchemy</div>
+        </div>
+  
+        <!-- Hidden Project 4 -->
+        <div class="project-card hidden" data-aos="fade-up">
+          <div class="card-icons">
+            <i class="fas fa-folder"></i>
+            <a href="https://github.com/your-username/algorithmic-trading-python" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="project-title">Algorithmic Trading</h3>
+          <p class="project-desc">
+            Built a trio of S&P 500 strategies with pandas, NumPy, and matplotlib to test Equal Weight and Momentum investing approaches.
+          </p>
+          <div class="tech-stack">NumPy &nbsp;&nbsp; Pandas &nbsp;&nbsp; Requests &nbsp;&nbsp; XlsxWriter</div>
+        </div>
+  
+        <!-- Hidden Project 5 -->
+        <div class="project-card hidden" data-aos="fade-up">
+          <div class="card-icons">
+            <i class="fas fa-folder"></i>
+            <a href="https://github.com/your-username/nlp-sql-bot" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="project-title">NLP SQL Bot</h3>
+          <p class="project-desc">
+            LangChain + Flask bot that understands natural language and executes SQL queries over a MySQL database.
+          </p>
+          <div class="tech-stack">Python &nbsp;&nbsp; Flask &nbsp;&nbsp; LangChain &nbsp;&nbsp; MySQL</div>
+        </div>
+  
+        <!-- Hidden Project 6 -->
+        <div class="project-card hidden" data-aos="fade-up">
+          <div class="card-icons">
+            <i class="fas fa-folder"></i>
+            <a href="https://github.com/your-username/finance-dashboard" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="project-title">Finance Dashboard</h3>
+          <p class="project-desc">
+            Personal finance dashboard built with Plotly and Flask to analyze income and expense patterns from CSV exports.
+          </p>
+          <div class="tech-stack">Plotly &nbsp;&nbsp; Flask &nbsp;&nbsp; Pandas</div>
         </div>
       </div>
   
       <div class="archive-btn-container">
-        <button class="archive-btn" onclick="openArchive()">View Project Archive</button>
-      </div>
-    </section>
-  
-    <!-- Archive Section -->
-    <section class="archive-section hidden" id="project-archive">
-      <h2 class="section-heading">Archive</h2>
-      <p class="archive-subheading">A list of things I’ve worked on</p>
-  
-      <div class="archive-grid">
-        <div class="archive-card">
-          <div class="archive-icon"><i class="fas fa-folder-open"></i></div>
-          <h3>COAPS Legacy Website</h3>
-          <p>Deployed and maintained a refreshed website for the Center for Ocean-Atmospheric Prediction Studies. Core objective: providing high-quality <span class="highlight">data products and services</span>.</p>
-          <div class="tags">PHP · JavaScript · Joomla 3–5</div>
-        </div>
-  
-        <div class="archive-card">
-          <div class="archive-icon"><i class="fas fa-folder-open"></i></div>
-          <h3>COAPS Simplified Daily Swath Files</h3>
-          <p>This functionality allows Marine Scientists to download satellite swath products. Only simplified files are initially available.</p>
-          <div class="tags">PostgreSQL · Python · JavaScript · Airflow</div>
-        </div>
-  
-        <div class="archive-card">
-          <div class="archive-icon"><i class="fas fa-folder-open"></i></div>
-          <h3>Web Scraping with LangChain</h3>
-          <p>Scrape sites and extract structured data using <span class="highlight">LangChain</span> and <span class="highlight">OpenAI Functions</span>.</p>
-          <div class="tags">Python · LangChain · OpenAI API · SQLAlchemy</div>
-        </div>
+        <button class="archive-btn" onclick="showMoreProjects()">Show More</button>
       </div>
     </section>
   </div>
+  
   
 
 <!--Skills-->
@@ -452,11 +493,10 @@
       </div>
     </div>
     <div class="connect" id="connect" data-aos="fade-up">
-  
       <h2>If you’re hiring or just want to chat — I’d love to hear from you.</h2>
-      <a href="contact.html" class="connect-btn">Let’s Connect</a>
-      </div>
-   
+      <a href="contact.html" class="archive-btn connect-btn">Let’s Connect</a>
+    </div>
+    
   </section>
 </div>
   
@@ -470,7 +510,6 @@
     <li><a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a></li>
     <li><a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a></li>
     <li><a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-    <li><a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a></li>
   </ul>
 </div>
 
@@ -613,29 +652,18 @@ window.addEventListener('load', () => {
     }
   });
 </script>
+<script>
+  function showMoreProjects() {
+    document.querySelectorAll('.project-card.hidden').forEach(card => {
+      card.classList.remove('hidden');
+    });
+    document.querySelector('.archive-btn').style.display = 'none';
+  }
+</script>
 
   <script>
     AOS.init();
   </script>
-<script>
-  function openArchive() {
-    const projects = document.querySelector('.projects');
-    const archive = document.getElementById('project-archive');
-
-    // Hide "My Projects"
-    projects.style.display = 'none';
-
-    // Show archive section with animation
-    archive.classList.remove('hidden');
-    setTimeout(() => {
-      archive.classList.add('visible');
-    }, 50);
-
-    archive.scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
-
-
 
 </body>
 </html>

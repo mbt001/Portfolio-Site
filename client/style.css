@@ -258,180 +258,141 @@ body.light-theme .timeline-content p {
   
   
   /* ===== Projects ===== */
-/* ===== Projects Section ===== */
+/* ===== Projects Section Container ===== */
 .projects {
   padding: 100px 20px;
   text-align: center;
 }
 
 .section-heading {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 700;
+  color: #dcdcff;
   margin-bottom: 60px;
-  color: #cfcfff;
 }
 
+/* ===== Grid Layout ===== */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 1200px;
+  margin: auto;
 }
 
+/* ===== Project Cards ===== */
 .project-card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 30px 24px;
-  border-radius: 12px;
+  padding: 28px 22px;
+  border-radius: 16px;
+  text-align: center;
   backdrop-filter: blur(6px);
-  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(176, 132, 249, 0.12);
 }
 
-.project-card h3 {
-  font-size: 18px;
+/* ===== Card Icons (Folder + Links) ===== */
+.card-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.card-icons i {
+  transition: color 0.3s ease;
+}
+
+.card-icons i:hover {
   color: #b084f9;
+}
+
+/* ===== Title ===== */
+.project-title {
+  color: #b084f9;
+  font-weight: 600;
   margin-bottom: 12px;
+  font-size: 17px;
 }
 
-.project-card p {
-  font-size: 14px;
-  color: #d0d0f0;
+/* ===== Description ===== */
+.project-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #d0d0d0;
   margin-bottom: 16px;
 }
 
-.project-icon {
-  margin-bottom: 16px;
-  color: #33f1ff;
-}
-
-.project-tech {
+/* ===== Tech Stack ===== */
+.tech-stack {
+  font-family: 'Courier New', monospace;
+  color: #aaa;
   font-size: 13px;
-  color: #8ddfff;
-  margin-top: 10px;
 }
 
-/* Light Theme */
-body.light-theme .project-card {
-  background: #fff;
-  color: #1d1d1f;
-}
-body.light-theme .project-card h3 {
-  color: #0071e3;
-}
-body.light-theme .project-tech {
-  color: #444;
+/* ===== Hidden Cards (For Show More) ===== */
+.project-card.hidden {
+  display: none;
 }
 
-/* ===== Archive Button ===== */
+/* ===== Show More Button ===== */
 .archive-btn-container {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
 }
+
 .archive-btn {
   background-color: transparent;
   color: #33f1ff;
   border: 2px solid #33f1ff;
   padding: 12px 32px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .archive-btn:hover {
   background-color: #33f1ff;
   color: #0f0f1e;
-  transform: scale(1.05);
 }
+
+/* ===== Light Theme Support ===== */
+body.light-theme .projects {
+  background: #ffffff;
+}
+
+body.light-theme .section-heading {
+  color: #111;
+}
+
+body.light-theme .project-card {
+  background: #f9f9f9;
+  color: #1d1d1f;
+}
+
+body.light-theme .project-desc,
+body.light-theme .tech-stack {
+  color: #444;
+}
+
 body.light-theme .archive-btn {
+  background-color: transparent;
   color: #0071e3;
-  border-color: #0071e3;
+  border: 2px solid #0071e3;
 }
+
 body.light-theme .archive-btn:hover {
   background-color: #0071e3;
-  color: white;
-}
-
-/* ===== Archive Section ===== */
-.archive-section {
-  padding: 100px 20px;
-  text-align: left;
-  max-width: 1200px;
-  margin: auto;
-  opacity: 0;
-  transform: rotateY(90deg);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  display: none;
-}
-
-.archive-section.visible {
-  opacity: 1;
-  transform: rotateY(0);
-  display: block;
-}
-
-.archive-subheading {
-  color: #33f1ff;
-  font-size: 16px;
-  margin-bottom: 40px;
-}
-
-.archive-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-}
-
-.archive-card {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
-  padding: 28px;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 240px;
-}
-
-.archive-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.08);
-}
-
-.archive-card h3 {
   color: #ffffff;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.archive-card p {
-  color: #d0d0f0;
-  font-size: 14px;
-  margin-bottom: 16px;
-}
-
-.archive-icon {
-  color: #33f1ff;
-  margin-bottom: 12px;
-}
-
-.tags {
-  font-size: 12px;
-  color: #9adfff;
-  margin-top: auto;
-}
-
-.highlight {
-  color: #33f1ff;
-  font-weight: 500;
 }
 
 
@@ -1359,4 +1320,12 @@ body.light-theme .tech-tile span {
   .tech-tile span {
     font-size: 0.8rem;
   }
+}
+
+
+
+
+.connect .archive-btn {
+
+  text-decoration: none;
 }
