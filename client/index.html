@@ -56,30 +56,37 @@
     </svg>
   </a>
 
+  <!-- Desktop Nav -->
   <ul class="nav-links">
     <li><a href="#about"><span class="nav-index">01.</span>About</a></li>
     <li><a href="#education"><span class="nav-index">02.</span>Education</a></li>
     <li><a href="#experience"><span class="nav-index">03.</span>Experience</a></li>
     <li><a href="#projects"><span class="nav-index">04.</span>Projects</a></li>
     <li><a href="#services"><span class="nav-index">05.</span>Contact</a></li>
-  </ul>  
+  </ul>
+
+  <!-- Hamburger for mobile -->
+  <div class="hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
-
-
-
-
-
-<!-- Fixed Theme Toggle -->
-<div class="theme-toggle">
-  <i class="fas fa-moon"></i>
-  <label class="switch">
-    <input type="checkbox" id="themeSwitcher" />
-    <span class="slider"></span>
-  </label>
-  <i class="fas fa-sun"></i>
+<!-- MOBILE MENU OVERLAY (Right Side) -->
+<div class="mobile-nav-overlay" id="mobileMenu">
+  <div class="mobile-close" onclick="toggleMobileMenu()">&times;</div>
+  <ul class="mobile-nav-links">
+    <li><a href="#about">01. About</a></li>
+    <li><a href="#education">02. Education</a></li>
+    <li><a href="#experience">03. Experience</a></li>
+    <li><a href="#projects">04. Projects</a></li>
+    <li><a href="#services">05. Contact</a></li>
+  </ul>
 </div>
 
+<!-- MOBILE NAV BACKDROP -->
+<div class="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
 
 
   <!-- Hero Section -->
@@ -540,142 +547,22 @@
   </div>
 </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="script.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = document.querySelectorAll(".timeline-item");
-  
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, {
-        threshold: 0.6
-      });
-  
-      items.forEach(item => observer.observe(item));
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const timelineItems = document.querySelectorAll('.timeline-item');
-      let nextItemIndex = 0;
-      let isAnimating = false;
-  
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !isAnimating && nextItemIndex < timelineItems.length) {
-            isAnimating = true;
-  
-            const revealNext = () => {
-              const item = timelineItems[nextItemIndex];
-              if (item) {
-                item.classList.add('visible');
-                nextItemIndex++;
-                if (nextItemIndex < timelineItems.length) {
-                  setTimeout(revealNext, 10000); // 10s delay between items
-                }
-              }
-            };
-  
-            revealNext();
-          }
-        });
-      }, { threshold: 0.6 });
-  
-      timelineItems.forEach(item => observer.observe(item));
-    });
-  </script>
-  <script>
-  const tabs = document.querySelectorAll('.company-list li');
-    const entries = document.querySelectorAll('.job-entry');
-  
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active class from all
-        tabs.forEach(t => t.classList.remove('active'));
-        entries.forEach(entry => entry.classList.remove('active'));
-  
-        // Add active to clicked
-        tab.classList.add('active');
-        const targetId = tab.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('active');
-      });
-    });</script>
-  <script>
-    const sections = document.querySelectorAll('.scroll-section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
-      }
-    });
-  }, {
-    threshold: 0.6,
-  });
+<footer class="unified-footer">
+  Designed & Built by Mohit Bhat
+  <div class="social-icons">
+    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" rel="noopener noreferrer">
+      <i class="ai ai-google-scholar"></i>
+    </a>
+  </div>
+</footer>
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-  </script>
-  <script>
-    document.getElementById('scroll-indicator').addEventListener('click', () => {
-    const sound = document.getElementById('scroll-sound');
-    sound.currentTime = 0;
-    sound.play();
+<!-- External Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
 
-    document.getElementById('about').scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-  </script>
-  <script>
-window.addEventListener('load', () => {
-  const preloader = document.getElementById('preloader');
-  const content = document.getElementById('site-wrapper');
-  setTimeout(() => {
-    preloader.style.opacity = '0';
-    setTimeout(() => {
-      preloader.style.display = 'none';
-      content.style.display = 'block' ;
-    }, 800);
-  }, 1600); // allow animation to complete
-});
-
-
-  </script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 800, once: true });
-</script>
-<script>
-  window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 10) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-</script>
-<script>
-  function showMoreProjects() {
-    document.querySelectorAll('.project-card.hidden').forEach(card => {
-      card.classList.remove('hidden');
-    });
-    document.querySelector('.archive-btn').style.display = 'none';
-  }
-</script>
-
-  <script>
-    AOS.init();
-  </script>
 
 </body>
 </html>

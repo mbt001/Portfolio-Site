@@ -1,36 +1,131 @@
-const toggle = document.getElementById("themeSwitcher");
+console.log("JS Loaded");
 
-// Load particles based on current theme
+// ======================
+// AOS animations
+// ======================
+AOS.init({ duration: 800, once: true });
 
+// ======================
+// Show More Projects
+// ======================
+function showMoreProjects() {
+  document.querySelectorAll('.project-card.hidden').forEach(card => {
+    card.classList.remove('hidden');
+  });
+  const btn = document.querySelector('.archive-btn');
+  if (btn) btn.style.display = 'none';
+}
+window.showMoreProjects = showMoreProjects;
 
-// Load saved theme on startup
-window.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme") || "dark";
-
-  if (savedTheme === "light") {
-    document.body.classList.add("light-theme");
-    toggle.checked = true;
+// ======================
+// Navbar scroll behavior
+// ======================
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 10) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
   }
-
-
 });
 
-// Toggle handler
-toggle.addEventListener("change", () => {
-  const theme = toggle.checked ? "light" : "dark";
+// ======================
+// Company Tabs (Experience section)
+// ======================
+const tabs = document.querySelectorAll('.company-list li');
+const entries = document.querySelectorAll('.job-entry');
 
-  document.body.classList.toggle("light-theme", theme === "light");
-  localStorage.setItem("theme", theme);
-  
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    entries.forEach(entry => entry.classList.remove('active'));
+    tab.classList.add('active');
+    const targetId = tab.getAttribute('data-target');
+    document.getElementById(targetId)?.classList.add('active');
+  });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const el = document.getElementById("animated-text");
+// ======================
+// Scroll indicator sound
+// ======================
+const scrollIndicator = document.getElementById("scroll-indicator");
+if (scrollIndicator) {
+  scrollIndicator.addEventListener("click", () => {
+    const sound = document.getElementById("scroll-sound");
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play();
+    }
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+// ======================
+// Preloader
+// ======================
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  const content = document.getElementById("site-wrapper");
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+      if (content) content.style.display = "block";
+    }, 800);
+  }, 1600);
+});
+
+// ======================
+// Mobile Nav Toggle (with overlay/backdrop)
+// ======================
+
+function openMobileMenu() {
+  document.getElementById('mobileMenu')?.classList.add('active');
+  document.querySelector('.mobile-nav-backdrop')?.classList.add('active');
+  document.body.style.overflow = "hidden";
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu')?.classList.remove('active');
+  document.querySelector('.mobile-nav-backdrop')?.classList.remove('active');
+  document.body.style.overflow = "";
+}
+window.toggleMobileMenu = function() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu.classList.contains('active')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+// Backdrop click closes menu
+const navBackdrop = document.querySelector('.mobile-nav-backdrop');
+if (navBackdrop) {
+  navBackdrop.addEventListener('click', closeMobileMenu);
+}
+
+// Auto-close mobile menu on link click + scroll to section
+document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      document.querySelector(targetId)?.scrollIntoView({ behavior: "smooth" });
+      setTimeout(closeMobileMenu, 250);
+    }
+  });
+});
+
+// ======================
+// Hero Text Animation
+// ======================
+window.addEventListener("DOMContentLoaded", () => {
+  // Animate Hero Text
+  const el = document.getElementById("animated-text");
+  if (el) {
     const text = el.textContent.trim();
     const words = text.split(" ");
-
-    el.innerHTML = ""; // clear existing content
-
+    el.innerHTML = "";
     words.forEach((word, i) => {
       const span = document.createElement("span");
       span.textContent = word + " ";
@@ -41,51 +136,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // reveal job status after animation
     const jobStatus = document.getElementById("jobStatus");
     setTimeout(() => {
-      jobStatus.classList.add("visible");
+      if (jobStatus) jobStatus.classList.add("visible");
     }, words.length * 100 + 500);
-  });
+  }
 
-
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll('.timeline-item');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.6
+  // Timeline intersection animations
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
+  }, { threshold: 0.6 });
+  timelineItems.forEach((item) => timelineObserver.observe(item));
 
-    items.forEach(item => observer.observe(item));
-  });
-
-// all the checks for placeholders in contact form
-
-// === AOS animation init
-AOS.init();
-
-const body = document.body;
-
-// Set saved theme on load
-const savedTheme = localStorage.getItem("theme") || "dark";
-if (savedTheme === "light") {
-  body.classList.add("light-theme");
-  if (toggle) toggle.checked = true;
-}
-
-// Theme switcher handler
-if (toggle) {
-  toggle.addEventListener("change", () => {
-    const theme = toggle.checked ? "light" : "dark";
-    body.classList.toggle("light-theme", theme === "light");
-    localStorage.setItem("theme", theme);
-  });
-}
-
-
-////game
-
+  // Section fade-in on scroll
+  const sections = document.querySelectorAll(".scroll-section");
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle("visible", entry.isIntersecting);
+    });
+  }, { threshold: 0.6 });
+  sections.forEach(section => sectionObserver.observe(section));
+});
