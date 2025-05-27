@@ -966,100 +966,101 @@ body.light-theme .tech-tile span { color: #0073f0; }
     color: var(--text-color);
     text-align: center;
   }
+
   
   /* Social Icons Sidebar (Left) */
-  /* Left Sidebar - Social Icons */
-  .socials {
-    position: fixed;
-    bottom: 0;
-    left: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .socials ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .socials li {
-    margin: 10px 0; /* space between icons */
-  }
-  
-  .socials a {
-    color: #8892b0;
-    font-size: 24px; /* icon size */
-    transition: color 0.3s ease;
-  }
-  
-  .socials a:hover {
-    color: #64ffda;
-  }
-  
-  .socials::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 90px;
-    margin-top: 20px;
-    background-color: #8892b0;
-  }
-  
-  
-  /* Email Sidebar (Right) */
-  /* Email Sidebar - Right */
-  .email {
-    position: fixed;
-    bottom: 0;
-    right: 40px; /* pull it closer inside */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .email a {
-    font-family: 'Your Font', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    color: #8892b0;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .email a:hover {
-    color: #64ffda;
-  }
-  
-  .email::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 90px;
-    margin-top: 20px;
-    background-color: #8892b0;
-  }
-  
-  
-  .scroll-section {
-    height: 100vh;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    scroll-margin-top: 80px;
-  }
-  
-  .scroll-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
+.socials {
+  position: fixed;
+  bottom: 0;
+  left: 40px;
+  width: 48px; /* Fixed width for perfect centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 11;
+}
+.socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.socials li {
+  margin: 10px 0;
+}
+.socials a {
+  color: #8892b0;
+  font-size: 28px;
+  width: 40px;  /* ensures all icons align */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: center;
+}
+.socials a:hover {
+  color: #64ffda;
+}
+.socials::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: #8892b0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Email Sidebar (Right) */
+.email {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  width: 48px; /* Match socials for symmetry */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 11;
+}
+.email a {
+  font-family: 'Poppins', 'Your Font', sans-serif;
+  font-size: 0.83rem;
+  letter-spacing: 0.12em;
+  color: #8892b0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-decoration: none;
+  transition: color 0.3s;
+  padding-bottom: 12px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 40px; /* keeps line and text aligned */
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.email a:hover {
+  color: #64ffda;
+}
+.email::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin-top: 8px;
+  background-color: #8892b0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
   /* Skills */
   .skills-grid {
     display: flex;
